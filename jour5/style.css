@@ -1,0 +1,80 @@
+.image
+{
+    height: 350px;
+    width: 400px;
+
+}
+
+.image img {
+    width: 100%;
+}
+
+.ligne
+{
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.numero1
+{
+    text-align: center;
+    background-color: blue;
+    width: 250px;
+    float: left;
+    margin :0 auto 0 0;
+
+}
+
+.numero2
+{
+    text-align: center;
+    background-color: red;
+    width: 250px;
+    float: center;
+    margin :0 auto 0 auto;
+}
+
+.numero3
+{
+    text-align: center;
+    background-color: yellow;
+    width: 250px;
+    margin :0 0 0 auto;
+    float: right;
+
+}
+.ligne2
+{
+    display: flex;
+    justify-content: space-between; 
+}
+
+.premiere
+{
+  text-align: center;
+    background-color: blue;
+    width: 250px;
+    float: left;
+    margin :0 auto 0 0;
+}
+
+.deuxieme
+{
+
+    text-align: center;
+    background-color: red;
+    width: 250px;
+    float: center;
+    margin :0 auto 0 auto;
+}
+
+
+.troisieme
+{
+
+    text-align: center;
+    background-color: yellow;
+    width: 250px;
+    margin :0 0 0 auto;
+    float: right;
