@@ -1,0 +1,36 @@
+html, body {
+    width:100%;
+}
+
+.image
+{
+    height: 350px;
+    width: 100%;
+    max-width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.image img {
+    max-width:100%;
+    display: block;
+    width:calc(100%/3);
+}
+
+.ligne
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+*{
+    background-color: darkblue;
+}
+
+a{
+    color:inherit;
+}
+h1{
+    text-align: center;
+    border:solid 4px green;
+}
