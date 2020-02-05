@@ -9,19 +9,13 @@
 </head>
 <body>
     <header>
-        <h1>CONTACT</h1>
+        <h1>PRESENTATIONL</h1>
         <nav>
-            <a href="index.html">accueil</a>
-            <a href="services.html">services</a>
-            <a href="contact.html">contact</a>
+            <a href="index.php">accueil</a>
+            <a href="services.php">services</a>
+            <a href="contact.php">contact</a>
+    
+
     </header>
 
     <main>
-
-    </main>
-
-    <footer>
-
-    </footer>
-</body>
-</html>

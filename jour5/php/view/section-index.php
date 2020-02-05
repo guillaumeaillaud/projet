@@ -1,30 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-    <header>
-        <h1>SERVICES</h1>
-        <nav>
-            <a href="index.html">accueil</a>
-            <a href="services.html">services</a>
-            <a href="contact.html">contact</a>
-    </header>
-
-    <main>
-        <section>
+<section>
+        <h2>MOTOS</h2>
         <div class="image">
-            <img src="assets/img/moto4.jpeg" alt="">
-            <img src="assets/img/moto5.jpeg" alt="">
-            <img src="assets/img/moto6.jpeg" alt="">
-        </section>
-        <section>
-            <div class="ligne">
+                <img src="assets/img/moto1.jpeg" alt="">
+                
+                <img src="assets/img/moto2.jpeg" alt="">
+                <img src="assets/img/moto3.jpeg" alt="">
+        </div>
+        <div class="ligne">
                 <div>
                     <div>course</div>
                     <a>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio ad, saepe repellat magni rerum tempora quidem optio quaerat provident praesentium aliquam tenetur ullam quisquam id voluptas nam. Quia, deserunt enim!</a>
@@ -37,23 +19,7 @@
                     <div>ville</div>
                     <a>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis ducimus asperiores saepe dolores quam, sint consequatur illum quod aliquam at cupiditate mollitia. Labore, consequuntur corporis! Magnam aperiam eligendi in adipisci.</a>
                 </div>
+        </div>
 
-
-            
-
-
-
-            </div>
-
-        
-        </section>
-    </div>
-
-
+    </section>
     </main>
-
-    <footer>
-
-    </footer>
-</body>
-</html>
