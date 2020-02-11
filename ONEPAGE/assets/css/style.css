@@ -1,0 +1,39 @@
+.image
+{
+    height: 350px;
+    width: 100%;
+    max-width:100%;
+    display:flex;
+    justify-content: space-between;
+}
+
+.image img
+{
+    max-width:100%;
+    display: block;
+    width:calc(100%/3);
+}
+
+*{
+    background-color: chocolate;
+}
+
+h1{
+    text-align: center;
+}
+.image2
+{
+    height: 350px;
+    width: 100%;
+    max-width:100%;
+    display:flex;
+    justify-content: space-between; 
+}
+
+.image2 img
+{
+  
+    max-width:100%;
+    display: block;
+    width:calc(100%/3);  
+}
