@@ -3,37 +3,32 @@
         <?php
         $logo = ["logohtml.jpg", "logocss.jpg", "logophp.jpg"];
 
-        foreach ($logo as $different) {
+        foreach ($logo as $different) 
+        {
             echo <<<html
                         <img src="assets/img/$different" alt="">
                         html;
         }
-
-        $moto = ["moto4.jpg", "moto5.jpg", "moto6.jpg"];
-        $i = 0;
-        while ($i < count($moto)) {
-            echo <<<html
-                      <img src="assets/img/$moto[$i]" alt="">
-                     html;
-            $i = $i + 1;
-        }
-        ?>
+         ?>
     </div>
 </section>
+<section id="s5">
+        <h1>CONTACT</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio, non nihil architecto, maxime cupiditate sit, voluptate modi delectus exercitationem eos reiciendis magnam veniam. Cupiditate minima, itaque blanditiis modi sint voluptas?</p>
 
-<!--  <section>
+        <form action="#s5" method="GET">
+            <input type="text" name="nom" placeholder="entrez votre nom">
+            <input type="email" name="email" placeholder="entrez votre email">
+            <textarea name="message" cols="50" rows="10" placeholder="entrez votre message"></textarea>
+            <button type="submit">envoyer un message</button>
+            <div>
+                <?php require_once "php/controller/traitement-contact.php" ?>
+            </div>
+        </form>
 
-            
-                <div class="image2">
-           
-                <img src="assets/img/moto4.jpg" alt="">
-                <img src="assets/img/moto5.jpg" alt="">
-                <img src="assets/img/moto6.jpg" alt="">
-              
 
-                </div>
+</section>
 
-            </section>
         
         
                 
