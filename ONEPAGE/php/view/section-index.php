@@ -29,10 +29,22 @@
 </section>
 <section>
     <h1>NOS COURS DE CODES</h1>
+    
     <div class="image">
+        <?php
+        $pic = ["clavier.jpg", "souris.jpg", "computer.jpg"];
+        foreach ($pic as $pic2) 
+        {
+            echo <<<html
+            <img src="assets/img/$pic2" alt="">
+            html;
+            
+        }
+        ?>
+        <!---
         <img src="assets/img/clavier.jpg" alt="">
         <img src="assets/img/souris.jpg" alt="">
-        <img src="assets/img/computer.jpg" alt="">
+        <img src="assets/img/computer.jpg" alt=""> --->
     </div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident natus alias possimus enim illo eos id dolorum, temporibus amet. Harum soluta dignissimos quia ut a obcaecati quis eius, adipisci hic.</p>
 </section>
