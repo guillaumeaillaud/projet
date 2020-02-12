@@ -7,10 +7,14 @@
     flex-wrap: wrap;
 }
 
-.image img {
+.image .colonne {
     max-width: 100%;
     display: block;
     width: calc(100%/3);
+}
+
+.image img {
+    height:200px;
 }
 
 * {
@@ -19,6 +23,19 @@
 
 h1 {
     text-align: center;
+    font-size: 48px;
+  text-shadow: -1px -1px #9df, 1px 1px #49d, -3px 0 4px #000;
+  font-family:"Segoe print", Arial, Helvetica, sans-serif;
+  color:#6bf;
+  padding:24px 32px 32px 32px;
+  font-weight:lighter;
+  -moz-box-shadow: 2px 2px 6px #888;  
+  -webkit-box-shadow: 2px 2px 6px #888;  
+  box-shadow:2px 2px 6px #888;  
+  text-align:center;
+  line-height:150px;
+  background-image:url(images/background-h1-wide.jpg);
+
 }
 
 .image2 {
@@ -34,4 +51,15 @@ h1 {
     max-width: 100%;
     display: block;
     width: calc(100%/3);
+}
+
+.colonne
+{
+    justify-content: space-between;
+}
+
+#s5 p
+{
+
+    color: rgb(28, 35, 145);
 }
