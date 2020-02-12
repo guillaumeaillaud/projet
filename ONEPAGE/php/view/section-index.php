@@ -34,6 +34,7 @@
         <img src="assets/img/souris.jpg" alt="">
         <img src="assets/img/computer.jpg" alt="">
     </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident natus alias possimus enim illo eos id dolorum, temporibus amet. Harum soluta dignissimos quia ut a obcaecati quis eius, adipisci hic.</p>
 </section>
 <section id="s5">
         <h1>CONTACT</h1>

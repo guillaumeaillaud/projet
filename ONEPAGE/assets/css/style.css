@@ -18,7 +18,7 @@
 }
 
 * {
-    background-color: lightskyblue;
+    background-color: green;
 }
 
 h1 {
@@ -31,7 +31,7 @@ h1 {
   font-weight:lighter;
   -moz-box-shadow: 2px 2px 6px #888;  
   -webkit-box-shadow: 2px 2px 6px #888;  
-  box-shadow:2px 2px 6px #888;  
+  box-shadow:red;  
   text-align:center;
   line-height:150px;
   background-image:url(images/background-h1-wide.jpg);
@@ -62,4 +62,11 @@ h1 {
 {
 
     color: rgb(28, 35, 145);
+}
+
+
+footer p
+{
+    border: solid 4px rgb(238, 255, 0);
+    background-color:  rgb(238, 255, 0);
 }

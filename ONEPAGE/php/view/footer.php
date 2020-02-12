@@ -1,10 +1,10 @@
 </main>
-    <div>
+    
     <footer>
-        <p>tous droits reserve</p>
-        <p>copyright</p>
+       <p>tous droits reserve <br> copyright</p> 
+       
     </footer>
-    </div>
+    
 
 </body>
 </html>
