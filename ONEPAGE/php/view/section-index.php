@@ -27,6 +27,14 @@
          ?>
     </div>
 </section>
+<section>
+    <h1>NOS COURS DE CODES</h1>
+    <div class="image">
+        <img src="assets/img/clavier.jpg" alt="">
+        <img src="assets/img/souris.jpg" alt="">
+        <img src="assets/img/computer.jpg" alt="">
+    </div>
+</section>
 <section id="s5">
         <h1>CONTACT</h1>
         
