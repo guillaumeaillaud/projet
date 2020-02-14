@@ -1,5 +1,7 @@
 <?php
     require_once 'lib/validator.php';
+    
+    $errorMessage = '';
 
     if (!empty($_REQUEST)) {
         // $username = $_REQUEST['username'];
@@ -24,7 +26,11 @@
 
         $match = comparePwd($pwd, $cfm_pwd);
 
-        var_dump($match);
+        if (!$match) {
+            $errorMessage = "Passwords don't match !";
+        }
+
+        // var_dump($match);
 
         // var_dump($username);
 
@@ -36,6 +42,7 @@
     }
 
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -47,14 +54,15 @@
 <body>
     <form action="" method="post">
         <label for="user-name">User name</label>
-        <input type="text" name="username" id="user-name">
+        <input type="text" name="username" id="user-name" required>
         <label for="user-email">Email</label>
-        <input type="email" name="email" id="user-email">
+        <input type="email" name="email" id="user-email" required >
         <label for="user-password">Password</label>
-        <input type="password" name="password" id="user-password">
+        <input type="password" name="password" id="user-password" required minlength="8">
         <label for="user_-confirm">Confirm password</label>
-        <input type="password" name="confirm_pwd" id="user-confirm">
+        <input type="password" name="confirm_pwd" id="user-confirm" required minlength="8">
         <input type="submit" value="Log in">
     </form>
+    <?php echo $errorMessage; ?>
 </body>
 </html>
