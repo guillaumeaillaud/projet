@@ -1,0 +1,23 @@
+body{
+background-color: mediumturquoise;
+}
+
+h1{
+    text-align: center;
+}
+
+.a{
+    color: green;
+}
+
+.b{
+    color: orange;
+}
+
+.c{
+    color: red;
+}
+
+.hide{
+    display: none;
+}
