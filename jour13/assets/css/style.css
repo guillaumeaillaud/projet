@@ -1,27 +1,27 @@
-body{
-background-color: mediumturquoise;
+body {
+    background-color: mediumturquoise;
 }
 
-h1{
+h1 {
     text-align: center;
 }
 
-.a{
+.a {
     color: green;
 }
 
-.b{
+.b {
     color: orange;
 }
 
-.c{
+.c {
     color: red;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-#wrapper{
+#wrapper {
     text-align: center;
 }

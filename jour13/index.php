@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <div id="wrapper">
-<input id="popup" type="button" value="Pop up ouverture">
+    <input id="popup" type="button" value="Pop up ouverture">
 </div>
+
 <body>
     <header>
         <h1>Paragraphe</h1>
