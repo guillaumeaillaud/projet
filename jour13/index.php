@@ -7,8 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+<div id="wrapper">
 <input id="popup" type="button" value="Pop up ouverture">
-
+</div>
 <body>
     <header>
         <h1>Paragraphe</h1>
@@ -30,12 +31,11 @@
         </div>
         <hr>
         <hr>
-        <form action="" id="form">
+        <div id="wrapper">
+            <button id="btnHide">Search</button>
             <input type="text" name="" id="searchinput" placeholder="tapez votre recherche">
-            <button>Search</button>
-        </form>
-        <button id="btnHide">Search</button>
 
+        </div>
     </main>
     <footer>
 
