@@ -8,7 +8,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<input type="button" value=users onclick="">
+
 <button id="btn">clique</button>
     <script src="assets/js/app.js"></script>
 </body>
