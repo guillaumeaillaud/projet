@@ -37,3 +37,10 @@ h2{
     box-shadow: 6px 6px 0px black;
     text-align: center;
 }
+
+p{
+    background-color: yellow;
+    border: 2px solid yellow;
+    border-radius: 6px;
+    box-shadow: 6px 6px 0px black;
+}
