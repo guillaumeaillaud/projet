@@ -1,0 +1,39 @@
+body{
+    background-color: turquoise;
+}
+
+h1{
+    text-align: center;
+    background-color: yellow;
+    border: 2px solid yellow;
+    border-radius: 6px;
+    box-shadow: 6px 6px 0px black;
+}
+
+.image article{
+    margin:0.5rem;
+    width: calc( 100% / 3 - 1rem);
+    order:10;
+
+}
+
+.image{
+    
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.image img {
+    object-fit: cover;
+    width:100%;
+    height:350px;
+}
+
+h2{
+    background-color: yellow;
+    border: 2px solid yellow;
+    border-radius: 6px;
+    box-shadow: 6px 6px 0px black;
+    text-align: center;
+}
