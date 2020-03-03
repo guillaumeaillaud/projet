@@ -1,5 +1,5 @@
 <h2>NEWS</h2>
-
+<div class="image">
 <?php
 
 $pdo = new PDO("mysql:host=localhost;dbname=articles;charset=utf8;", "root", "");
@@ -35,6 +35,7 @@ CODEHTML;
 }
 
 ?>
+</div>
 
 <section>
     <div class="image">
