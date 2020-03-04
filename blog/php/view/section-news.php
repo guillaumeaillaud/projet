@@ -24,10 +24,11 @@ foreach ($tabLigne as $tabAsso) {
 
     echo
 <<<CODEHTML
-    <article class="$categorie">
+    <article>
         <img src="$image" alt="photo1">
         <h3>$titre</h3>
         <p>$contenu</p>
+        <P>$categorie</p>
     </article>
 CODEHTML;
 }

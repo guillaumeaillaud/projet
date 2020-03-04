@@ -44,3 +44,12 @@ p{
     border-radius: 6px;
     box-shadow: 6px 6px 0px black;
 }
+
+.tableau {
+    display: flex;
+    flex-direction: column;
+}
+.tableau > * {
+    margin:0.25rem;
+    padding:0.25rem;
+}

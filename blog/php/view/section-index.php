@@ -1,6 +1,6 @@
 
         <section>
-            <h2>ACCEUIL</h2>
+            <h2>ACCUEIL</h2>
             <div class="image">
             <img src="assets/img/acceuilBlog.jpg" alt="photoAcceuil">
             </div>
