@@ -5,13 +5,11 @@
 $pdo = new PDO("mysql:host=localhost;dbname=articles;charset=utf8;", "root", "");
 
 $requeteSql =
-    <<<CODESQL
 
-            SELECT * FROM `infos`
-            ORDER BY datePublication DESC
-
-
-            CODESQL;
+<<<CODESQL
+SELECT * FROM `infos`
+ORDER BY datePublication DESC
+CODESQL;
 
 $pdoStatement = $pdo->query($requeteSql);
 
@@ -26,11 +24,11 @@ foreach ($tabLigne as $tabAsso) {
 
     echo
 <<<CODEHTML
-            <article class="$categorie">
-                <img src="$image" alt="photo1">
-                <h3>$titre</h3>
-                <p>$contenu</p>
-            </article>
+    <article class="$categorie">
+        <img src="$image" alt="photo1">
+        <h3>$titre</h3>
+        <p>$contenu</p>
+    </article>
 CODEHTML;
 }
 
