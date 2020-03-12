@@ -1,20 +1,27 @@
 
+
+
 <?php
-/* calculer la somme dans un tableau*/
 
-function sommeTab($tableau)
+/* caluler le nombre de chiffre paire ds un tableau*/
+
+function paire($tableauPair)
 {
-    $somme = $tableau[0];
 
-    for ($i = 1; $i < count($tableau); $i++) {
+    $pair = 0;
 
-        $somme += $tableau[$i];
+    for ($i = 0; $i < count($tableauPair); $i++) {
+
+        if ($tableauPair[$i] % 2 == 0) {
+
+            $pair =$pair+ 1;
+        }
     }
-    return $somme;
+
+    return $pair;
 }
 
-$tableau = [3, 2, 6, 89];
-
-echo sommeTab($tableau);
+$tableauPair = [1, 5, 4, 10];
+echo paire($tableauPair);
 
 ?>
