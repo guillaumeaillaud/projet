@@ -26,7 +26,25 @@ echo paire($tableauPair);
 
 */
 /*  calcul de nombre impairs dans un tableau*/
+$tab = [3, 5, 21, 2, 10, 9];
 
+function compterpair($tab)
+{
+    $pair = 0;
+    foreach ($tab as $nombre) {
+
+        if (($nombre % 2) == 1) {
+
+            $pair = $pair + 1;
+
+            
+        }
+       
+    }
+    return $pair;
+}
+
+echo compterpair($tab);
 
 
 
