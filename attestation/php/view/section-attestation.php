@@ -45,20 +45,10 @@
 
         <div class="confirmation">
 
-            <?php
-            // CODE POUR TRAITER LE FORMULAIRE
-
-            // ON PEUT CREER DES FONCTIONS POUR NOUS FACILITER LE CODE
-            // AVANTAGE1: NE PAS DUPLIQUER DES BLOCS DE CODE IDENTIQUES
-            // AVANTAGE2: AJOUTER DU CODE DE SECURITE POUR FILTRER CHAQUE INFO EXTERIEURE
-            function filtrer($name)
-            {
-                // SECURITE: ?? "" => SI LE NAVIGATEUR N'ENVOIE PAS L'INFO, ON PREND COMME VALEUR PAR DEFAUT ""
-                $infos = $_REQUEST[$name] ?? "";
-                // ON POURRA RAJOUTER PLUS DE SECURITE...
-
-                return $infos;
-            }
+        <?php 
+             // CODE POUR TRAITER LE FORMULAIRE
+             // ON SEPARE LE CODE DE NOS FONCTIONS DANS UN FICHIER COMMUN   
+            require_once "php/mes-fonctions.php";
 
             // ATTENTION: LE CODE PHP EST ASSOCIE AU CODE HTML
             // <input type="hidden" name="identifiantFormulaire" value="declaration">
@@ -66,7 +56,7 @@
             // VERIFIER SI LE FORMULAIRE A ETE ENVOYE
             // $identifiantFormulaire = $_REQUEST["identifiantFormulaire"] ?? "";
 
-            $identifiantFormulaire = filtrer("identificationFormulaire");
+            $identifiantFormulaire = filtrer("identifiantFormulaire");
 
             if ($identifiantFormulaire == "declaration") {
                 // ALORS JE VAIS RECUPERER LES INFOS
@@ -97,33 +87,7 @@
                     // https://www.php.net/manual/fr/function.date.php
                     $tabAssoColonneValeur["dateDeclaration"] = date("Y-m-d H:i:s");
 
-                    // MAINTENANT JE PEUX CONSTRUIRE LA REQUETE SQL PREPAREE
-
-                    $requeteSQL =
-                        <<<CODESQL
-
-INSERT INTO declaration
-(nom, prenom, adresse, raison, numero, dateDeclaration)
-VALUES
-(:nom, :prenom, :adresse, :raison, :numero, :dateDeclaration)
-
-CODESQL;
-                    // ENSUITE, ON VA ENVOYER LA REQUETE SQL PREPAREE
-                    // CONNECTER A SQL
-
-                    // ETAPE1: CONNECTER PHP A SQL
-                    $pdo = new PDO("mysql:host=localhost;dbname=attestation;charset=utf8;", "root", "");
-
-                    // ETAPE2a: ON ENVOIE LA REQUETE PREPAREE
-                    // PDOStatement EST UN CONTAINER QUI ENGLOBE LES RESULTATS DE LA REQUETE SQL
-                    $pdoStatement = $pdo->prepare($requeteSQL);
-
-                    // ETAPE2b: ON FOURNIT LES DONNEES EXTERIEURES A PART
-                    $pdoStatement->execute($tabAssoColonneValeur);
-
-                    // POUR DEBUG SQL SI BESOIN
-                    // https://www.php.net/manual/fr/pdostatement.debugdumpparams.php
-                    $pdoStatement->debugDumpParams();
+                    insererLigneSQL("declaration", $tabAssoColonneValeur);
 
                     //debug
                     echo "votre declaration est bien enregistree. NOTEZ BIEN VOTRE NUMERO D'ATTESTATION {$tabAssoColonneValeur["numero"]}";
