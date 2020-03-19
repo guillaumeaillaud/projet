@@ -23,6 +23,23 @@ function getConnection()
     return $bd;
 }
 
+//  TODO extraire le code suivant dans une fonction utilitaire qu'on pourra réutiliser si besoin. La fonction prendra en paramètre une chaîne de caractères et retournera une nouvelle chaîne de caarctères correspondant au nouveau nom de fichier
+
+function createUniqueString($string, $delimiter)
+{
+
+
+    // on utilise une expression régulière pour trouver les espaces dans une chaîne de caractères
+    $pattern = '/\s/';
+    // on utilise preg_replace pour les remplacer
+    $newString = preg_replace($pattern, $delimiter, $string);
+
+    // on va générer un identifiant unique pour le fichier qu'on va sauvegarder pour éviter des conflits entre les noms des fichiers
+    return uniqid() . '-' . $newString;
+}
+
+
+
 //TODO: créer une fonction qui prendra en parametre une requete et qui traitera les données du formulaire
 
 function handleRequest($information)
@@ -34,15 +51,9 @@ function handleRequest($information)
         extract($information["fileUpload"]);
 
         // vérifier si pas d'erreur lors de l'upload
-        if ($error === UPLOAD_ERR_OK) {
+        if (UPLOAD_ERR_OK === $error) {
 
-            //on utilise une expression reguliere pour trouver les espaces dans une chaine de caractere
-            $pattern = "/\s/";
-            //on utilise preg_replace pour les remplacer
-            $name = preg_replace($pattern, "-", $name);
-
-            // on va générer un identifiant unique pour le fichier qu'on va sauvegarder
-            $fileName = uniqid() . "-" . $name;
+            $fileName = createUniqueString($name, '-');
 
             //on spécifie a quel endroit on va sauvegarder nos images sur le serveur
             $uploadsDir = "uploads/";
