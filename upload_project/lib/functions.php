@@ -47,11 +47,44 @@ function handleRequest($information)
 
 
     if (isset($information["fileUpload"])) {
+
+
+
         // on utilise extract pour se faciliter la vie et extraire les valeurs d'un tableau associatif dans des variables dont le nom correspond aux clé du tableau
         extract($information["fileUpload"]);
 
         // vérifier si pas d'erreur lors de l'upload
         if (UPLOAD_ERR_OK === $error) {
+
+            // on va verifier si l'extension du fichier en upload correspond bien a un fichier image
+            $authorizedExtensions = [
+                "jpg",
+                "jpeg",
+                "png",
+                "svg",
+            ];
+
+            //on doit récupérer l'extension de fichier dans la variable $type
+            // pour ca on va utiliser la fonction php explode()
+            //ressource : https://www.php.net/manual/fr/function.explode.php
+            // la valeur de la varaible $type => image/extension
+
+            $mimeType = explode("/",$type);
+
+            // on selectionne l'extension dans le tableau qu' a renvoyé la fonction explode()
+
+            $extension = $mimeType[1];
+
+            // on va vérifier que l'extension qu'on a récupéré correspond aux extensions autorisées
+            // pour faire ça on va utiliser la fonction php in_array()
+            // si l'extension n'est pas dans le tableau des extensions autorisées, on affiche un message à l'utilisateur et on stoppe le script
+
+            if(!in_array($extension, $authorizedExtensions)) {
+                echo"Ce type de fichier n'est pas autorisé à l'upload";
+
+                return;
+
+            }
 
             $fileName = createUniqueString($name, '-');
 
