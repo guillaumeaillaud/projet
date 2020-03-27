@@ -46,13 +46,21 @@
 
               // step 3 : récupérer les conditions météo de la ville
               fetch(
-                `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=8e602b9ea28ed4f9f8fc97a5f6d1105c&lang=fr&units=metric`
+                `http://api.openweathermap.org/data/2.5/weather?q=aix-en-provence&appid=8e602b9ea28ed4f9f8fc97a5f6d1105c&lang=fr&units=metric`
               )
                 .then(function(response) {
                   return response.json();
                 })
                 .then(function(data) {
                   console.log(data);
+                   // ici je récupère les éléments du DOM dans lesquels je veux afficher la valeur des infos météo que je récupère
+                   const city = document.querySelector("h1");
+                  const temp = document.querySelector("p");
+
+                  // ensuite j'injecte ces valeurs dans le DOM
+                  // par ex : je vais chercher la valeur de la propriété temp de la propriété main de l'objet data
+                  city.innerText += data.name;
+                  temp.innerText += data.main.temp;
                 });
             });
         });
