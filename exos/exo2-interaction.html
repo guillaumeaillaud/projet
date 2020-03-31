@@ -31,6 +31,13 @@
 var bouton1  = document.querySelector(".bouton1");
 var article1 = document.querySelector(".article1");
 
+// ECRITURE COMPACTE MAIS POPULAIRE CAR LES DEVS SONT DES FLEMMARDS...
+bouton1.addEventListener("click", function ()
+{
+    article1.classList.toggle("cacher");
+});
+
+
 /*
 function cacherArticle ()
 {
@@ -55,26 +62,6 @@ function cacherArticle ()
 // C'EST LE VISITEUR QUI VA DECLENCHER L'APPEL A LA FONCTION cacherArticle
 bouton1.addEventListener("click", cacherArticle);
 */
-
-bouton1.addEventListener("click", function ()
-{
-    // DEBUG
-    console.log("FONCTION ACTIVEE..");
-
-    // https://developer.mozilla.org/fr/docs/Web/API/Element/classList
-
-    // ICI ON DOIT RAJOUTER LE CODE POUR CACHER L'ARTICLE
-    // ON VA AJOUTER LA CLASSE cacher A LA BALISE article1
-    // article1.classList.add("cacher"); // ATTENTION PAS .cacher MAIS JUSTE cacher
-
-    // PRATIQUE POUR BASCULER: 
-    // SOIT ON AJOUTE LA CLASSE SI ELLE N'EST PAS PRESENTE
-    // SOIT ON ENLEVE LA CLASSE SI ELLE EST PRESENTE
-    article1.classList.toggle("cacher");
-
-    // POSSIBLE MAIS PAS RECOMMENDE...
-    // article1.setAttribute("class", "cacher");
-});
 
 
 
