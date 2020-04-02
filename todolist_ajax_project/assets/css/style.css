@@ -1,0 +1,11 @@
+.formulaire{
+
+    display: flex;
+    width: 100%;
+}
+
+input{
+
+   width: 100%;
+   
+}

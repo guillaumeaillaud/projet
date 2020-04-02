@@ -8,6 +8,7 @@
 </head>
 <body>
     <h1>Todolist Ajax</h1>
+    <div class="formulaire">
     <form action="" method="post">
         <div>
             <label for="title">Titre de la tâche</label>
@@ -19,6 +20,7 @@
         </div>
         <button>Save</button>
     </form>
+    </div>
     <div class="todos"></div>
     <script src="assets/js/main.js"></script>
 </body>

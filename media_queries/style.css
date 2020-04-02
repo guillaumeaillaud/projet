@@ -1,0 +1,45 @@
+@media screen and (max-width: 599px) {
+    body {
+        background: lightcoral;
+    }
+}
+
+
+
+
+@media screen and (min-width: 600px) {
+    /* les proprietes CSS ici ne seront appliques que si la condition est vraie */
+    header h1 {
+        color: #333;
+        font-size: 2.5rem;
+    }
+
+    header p {
+        font-size: 1.8rem;
+    }
+
+    section h2 {
+        font-size: 2rem;
+    }
+
+    section p {
+        font-size: 1.8rem;
+    }
+}
+
+
+
+@media screen and (min-width: 1000px) {
+    body{
+        background: #333;
+    }
+    h1, h2, p {
+        color: #fff;
+    }
+    #services {
+        display: flex;
+    }
+    #service article {
+        margin: 10px;
+    }
+}
