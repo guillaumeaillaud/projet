@@ -23,8 +23,10 @@ class Model
         $PdoStatement->execute();
 
         //debug : affichage resultat
-        print_r($PdoStatement->fetchAll());
+       // print_r($PdoStatement->fetchAll());
 
+       // je retourne le resultat de ma requete
+       return ($PdoStatement->fetchAll());
 
     }
 
@@ -79,12 +81,12 @@ class Model
 
 }
 
-$model = new Model();
+//$model = new Model();
 
-$response = $model->deleteTodos([
-   "id" => "2",
-]);
+//$response = $model->deleteTodos([
+  // "id" => "2",
+//]);
 
-var_dump($response);
+//var_dump($response);
 
 // $model->getTodos();
