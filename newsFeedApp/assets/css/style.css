@@ -1,0 +1,29 @@
+body {
+
+    background-color: lightgreen;
+}
+
+.search {
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+h1  {
+    background-color: lightseagreen;
+    text-align: center;
+
+    border: 2px solid yellow;
+    border-radius: 6px;
+    box-shadow: 6px 6px 0px black;
+}
+
+p {
+    background-color: lightseagreen;
+    text-align: center;
+
+    border: 2px solid yellow;
+    border-radius: 6px;
+    box-shadow: 6px 6px 0px black;
+}
