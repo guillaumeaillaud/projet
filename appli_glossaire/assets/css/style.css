@@ -1,0 +1,37 @@
+#form{
+    display: flex;
+   text-align: center;
+   justify-content: space-around;
+}
+
+#texte1{
+
+    max-width: 50%;
+    padding-right: 1rem;
+
+}
+
+#texte{
+
+    max-width: 50%;
+    padding-left: 1rem;
+}
+
+h1{
+    text-align: center;
+}
+
+#affichage{
+    display: flex;
+    text-align: center;
+}
+
+#affichage-gloss{
+    max-width: 50%;
+    padding-right: 1rem;
+}
+
+#affichage-bp{
+    max-width: 50%;
+    padding-right: 1rem;
+}
