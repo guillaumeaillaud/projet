@@ -1,0 +1,18 @@
+#read{
+    flex-wrap: wrap;
+    display: flex;
+}
+
+h2 {
+    text-align: center;
+}
+h1{
+
+    text-align: center;
+}
+
+.article{
+    
+    width: 100%;
+    border: blueviolet;
+}
