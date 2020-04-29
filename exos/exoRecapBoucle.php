@@ -147,13 +147,69 @@ $tabAsso = [
 
     greet();
 
-    */
+    
 
     //FONCTIONS AVEC PARAMETRES
 
-    function greet($nom){
+    function greet($nom = "pat"){
         echo "hello $nom";
 
     };
 
-    greet("patrick la trique");
+    greet("john");
+
+
+function compter($nbr1,$nbr2){
+    $resultat = $nbr1 + $nbr2;
+    //echo $resultat;
+    if($resultat <= 11){
+        return "tu es en dessous de 11 car $resultat est plus petit que 11";
+    }else{
+        return $resultat." est plus grand que 11";
+    }
+    
+
+};
+
+ echo (compter(23,5));
+ */
+
+ class User {
+     static $nbPied = 2;
+
+     static function getNbpied()
+     {
+        return User::$nbPied;
+     }
+
+
+
+     public $login = "";
+
+     function getLogin()
+     {
+         var_dump($this);
+         return $this->login;
+     }
+ }
+
+ echo "<h3>PAR CLASSE STATIC</h3>";
+
+ echo User::getNbPied();
+
+
+ echo "<h3>PAR OBJET</h3>";
+
+ $user = new User;
+ $user->login = "login13";
+ 
+
+ $user2 = new User;
+ $user2->login = "marseille13";
+
+
+echo "<h3>premier user</h3>";
+ $user->getLogin();
+
+echo "<h3>deuxieme user</h3>";
+ $user2->getLogin();
