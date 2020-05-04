@@ -7,11 +7,43 @@
 </head>
 <body>
     <h1>COUR PHP POO</h1>
-    <?php
-        require "utilisateur.classe.php";
+    
 
-        $pierre =  new Utilisateur();
-        $mathilde = new Utilisateur();
+   <!-- <form action="cours.php" method="POST">
+        <label for="nom">Nom d'utilisateur</label>
+        <input type="text" name="nom" id="nom"><br>
+        <label for="pass">choisissez un mot de passe</label>
+        <input type="text" name="pass" id="pass"><br>
+        <input type="submit" value="Envoyer">
+    </form>
+-->
+<?php
+
+    require 'utilisateur.classe.php';
+    require 'admin.classe.php';
+    // + verification des données recues (regex + filtres)
+    // + stockage des données dans une bdd
+
+   // $pierre = new Utilisateur($_POST['nom'], $_POST['pass']);
+   // echo $pierre->getNom().'<br>';
+
+    $pierre = new Admin('pierre', 'abcdef');
+    $mathilde = new Admin('math', 123456);
+
+    echo $pierre->getNom().'<br>';
+    echo $mathilde->getNom().'<br>';
+
+    $pierre->setBan('paul');
+    $pierre->setBan('jean');
+    $pierre->setBan('pat');
+
+    echo $pierre->getBan();
+
+
+      /*  require "utilisateur.classe.php";
+
+        $pierre =  new Utilisateur('pierre', 'abcdef');
+        $mathilde = new Utilisateur('math', 123456);
 
         //$pierre->user_name = "pierre";
         //$pierre->user_pass = "abcdef";
@@ -23,10 +55,14 @@
 
         $mathilde->setNom("math");
         $mathilde->setPasse("123456");
-
         echo $pierre->getNom()."</br>";
         echo $mathilde->getNom()."</br>";
-    ?>
+        */
+
+        ?>
+
+        
+    
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Autem, quae voluptates? Maiores molestiae cum consequatur est itaque delectus voluptates praesentium beatae pariatur vero possimus, quis esse eos totam nemo nam?</p>
 </body>
 </html>
