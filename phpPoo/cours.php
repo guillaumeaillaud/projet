@@ -27,11 +27,38 @@
    // $pierre = new Utilisateur($_POST['nom'], $_POST['pass']);
    // echo $pierre->getNom().'<br>';
 
-    $pierre = new Admin('pierre', 'abcdef');
-    $mathilde = new Admin('math', 123456);
+    $pierre = new Admin('pierre', 'abcdef', 'sud');
+    $mathilde = new Admin('math', 123456, 'nord');
+    $florian = new Utilisateur('flo', 'flotri', 'est');
 
-    echo $pierre->getNom().'<br>';
-    echo $mathilde->getNom().'<br>';
+    $pierre->setPrixAbo();
+    $mathilde->setPrixAbo();
+    $florian->setPrixAbo();
+
+    $u = 'Utilisateur';
+    echo 'valeur de ABONNEMENT dans Utilisateur : '.$u::ABONNEMENT.'<br>';
+    echo 'valeur de ABONNEMENT dans Admin : '.Admin::ABONNEMENT.'<br>';
+
+    echo 'prix de l\'abonnement pour : ';
+    $pierre->getNom();
+    echo ' : ';
+    $pierre->getPrixAbo();
+    echo '<br>';
+
+    echo 'prix de l\'abonnement pour : ';
+    $mathilde->getNom();
+    echo ' : ';
+    $mathilde->getPrixAbo();
+    echo '<br>';
+
+    echo 'prix de l\'abonnement pour : ';
+    $florian->getNom();
+    echo ' : ';
+    $florian->getPrixAbo();
+    echo '<br>';
+
+
+    /*
 
     $pierre->setBan('paul');
     $pierre->setBan('jean');
@@ -40,7 +67,7 @@
     echo $pierre->getBan();
 
 
-      /*  require "utilisateur.classe.php";
+        require "utilisateur.classe.php";
 
         $pierre =  new Utilisateur('pierre', 'abcdef');
         $mathilde = new Utilisateur('math', 123456);
