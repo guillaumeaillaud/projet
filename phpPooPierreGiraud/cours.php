@@ -31,6 +31,15 @@
     $mathilde = new Admin('math', 123456, 'nord');
     $florian = new Utilisateur('flo', 'flotri', 'est');
 
+    $pierre->setBan('paul', 'jean', 'pat');
+    $mathilde->setBan('thomas','georges');
+
+    $pierre->getBan();
+    echo '<br>';
+    $mathilde->getBan();
+
+
+    /*
     $pierre->setPrixAbo();
     $mathilde->setPrixAbo();
     $florian->setPrixAbo();
@@ -58,7 +67,7 @@
     echo '<br>';
 
 
-    /*
+    
 
     $pierre->setBan('paul');
     $pierre->setBan('jean');

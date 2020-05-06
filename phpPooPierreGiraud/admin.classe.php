@@ -2,7 +2,7 @@
 
 class Admin extends Utilisateur {
 
-    protected $ban;
+    protected static $ban;
     public const ABONNEMENT =5;
 
     public function __construct($n, $p, $r)
@@ -19,20 +19,22 @@ class Admin extends Utilisateur {
     }
     */
 
-    public function setBan ($b){
-        $this->ban[] .= $b;
+    public function setBan (...$b){
+        foreach($b as $banned){
+            self::$ban[] .= $banned;
+        }
     }
 
     public function getBan (){
-        echo 'Utilisateur bannis par '.$this->user_name.' : ';
-        foreach($this->ban as $valeur) {
+        echo 'Utilisateur bannis :  ';
+        foreach(self::$ban as $valeur) {
             echo $valeur .', ';
         }
     }
 
     public function setPrixAbo()
     {
-        if($this->prix_abo === 'sud'){
+        if($this->user_region === 'sud'){
             return $this->prix_abo = self::ABONNEMENT;
         }else{
             return $this->prix_abo = parent::ABONNEMENT / 2;
