@@ -7,9 +7,44 @@
 class ApiUser
 {
     // PROPRIETE COLLECTIVE
-    static $confirmation = "";
+    static $confirmation    = "";
+    static $cleApi          = "";
 
     // METHODES
+    // METHODES
+    static function create ()
+    {
+        // ICI, ON VA TRAITER LE FORMULAIRE DE create
+        // RECUPERER LES INFOS DU FORMULAIRE
+        // TODO: SECURITE ET VALIDATION...
+        // ET ON VA LES INSERER DANS LA TABLE Page
+
+        $tabAssoColonneValeur = [
+            "email"         => $_REQUEST["email"] ?? "",
+            "login"         => $_REQUEST["login"] ?? "",
+            "password"      => $_REQUEST["password"] ?? "",
+            "level"         => 10,       // PHP EST SYMPA ON PEUT LAISSER LA VIRGULE
+        ];
+
+        // ETAPE SUPPLEMENTAIRE
+        // HASHER LE MOT DE PASSE
+        $tabAssoColonneValeur["password"] = password_hash($tabAssoColonneValeur["password"], PASSWORD_DEFAULT);
+
+        // ON VA INSERER DANS LA TABLE SQL Page
+        $requetePrepareeSQL = 
+<<<CODESQL
+
+INSERT INTO user
+( email, login, password, level )
+VALUES
+( :email, :login, :password, :level )
+
+CODESQL;
+
+        Model::envoyerRequeteSQL($requetePrepareeSQL, $tabAssoColonneValeur);
+
+    }
+
     static function login ()
     {
         // LES INFOS DE FORMULAIRES SONT RECUPEREES DANS $_REQUEST
@@ -43,7 +78,11 @@ class ApiUser
                 // => TOKEN D'IDENTIFICATION
                 // ET ENSUITE LE VISITEUR POURRA UTILISER CE BADGE DANS LA PARTIE ADMIN...
                 // (LA PARTIE ADMIN POURRA VERIFIER SI LE BADGE EST VALIDE...)
-
+                if ($level >= 100)
+                {
+                    // ON VA RENVOYER LA CLE API
+                    ApiUser::$cleApi = "TEXTE-SECRET-FOURNI-PAR-LE-LOGIN";
+                }
             }
             else
             {
@@ -60,4 +99,14 @@ class ApiUser
 
     }
 
+
+    static function update ()
+    {
+        // ...
+    }
+
+    static function delete ()
+    {
+        // ...
+    }
 }

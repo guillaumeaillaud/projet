@@ -11,6 +11,19 @@
             </form>
         </section>
 
+        <section>
+            <h2>FORMULAIRE D'INSCRIPTION</h2>
+            <form class="ajax">
+                <input type="email" name="email" required placeholder="VOTRE EMAIL">
+                <input type="text" name="login" required placeholder="VOTRE LOGIN">
+                <input type="password" name="password" required placeholder="VOTRE PASSWORD">
+                <button>CREER MON COMPTE</button>
+                <div class="confirmation"></div>
+                <!-- ON VA DISTINGUER LES FORMULAIRES AVEC DES INFOS TECHNIQUES -->
+                <input type="hidden" name="methodeApi" value="create">
+            </form>
+        </section>
+
         <script>
 // ON VA PASSER LE FORMULAIRE EN AJAX
 // ON VA RANGER NOTRE CODE DANS UN OBJET => POO
@@ -48,6 +61,15 @@ mc.cbAjax = function (event)
     })
     .then(function (json) {
         console.log(json);
+
+        // JE PEUX RECUPERER LA CLE API
+        if ('cleApi' in json)
+        {
+            // ON VA LE MEMORISER DANS sessionStorage
+            // POUR POUVOIR LE REUTILISER SUR LA PAGE admin
+            sessionStorage.setItem('cleApi', json.cleApi);
+        }
+
     });
 }
 
