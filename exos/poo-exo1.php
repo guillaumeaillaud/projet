@@ -107,10 +107,11 @@ $objetPage->afficher();
 (SECTION3)
 (footer)
 
-// VERSION STRING
+
 
 // ... AJOUTER VOTRE CODE DIRECTEMENT ICI ...
 
+// VERSION STRING
 
 class Page {
 
@@ -172,25 +173,36 @@ $objetPage->afficherListe();
 (CODE DE LA SECTION1)
 (CODE DE LA SECTION2)
 (CODE DU FOOTER)
-*/
+
 
 // ... AJOUTER VOTRE CODE DIRECTEMENT ICI ...
 
 class PageV2 {
 
-    public $tab;
-    public $elem1;
-    public $elem2;
+    //propriete => permet de stocker des infos pour les utiliser a travers differentes methodes
+    // pour avoir une propriete qui soit partagé je dois faire une propriete STATIC (collective)
 
-    public function ajouter($el1, $el2)
-    {
-        $this->elem1 = $el1;
-        $this->elem2 = $el2;
-        echo $this->elem1;
-    }
     
-    public function afficherTab(){
-        
+    public static $tabAsso = [];
+
+    public function ajouter($cle, $valeur)
+    {
+        //on va memoriser les parametres ds un tab asso
+        PageV2::$tabAsso[$cle] = $valeur;
+    }
+
+    public function afficherTab($tabCle)
+    {
+        //on a deux tableaux $tabCle qui est un tableau ordonné avec des clés
+        // et on a $tabAsso qui est un tableau associatif clé/valeur
+        //on veut acceder au valeur du tableau asso
+        //on va faire une boucle sur $tabCle pour avoir les elements ds le bon ordre
+        foreach($tabCle as $cle)
+        {
+            // a partir de la clé je dois retrouver la valeur associé
+            $valeur = PageV2::$tabAsso[$cle];
+            echo $valeur;
+        }
     }
 }
 
@@ -209,3 +221,42 @@ $objet4->ajouter("section2", "(CODE DE LA SECTION2)");
 
 $objet5 = new PageV2;
 $objet5->afficherTab(["header", "section1", "section2", "footer"]);
+
+*/
+
+// AJOUTER LE CODE MANQUANT EN POO
+// POUR AFFICHER
+/*
+<header>
+    <h1>TITRE1</h1>
+</header>
+<main>
+    <section>
+        CONTENU DE MA SECTION
+    </section>
+</main>
+<footer>
+    TOUS DROITS RESERVES
+</footer>
+*/
+
+// ... AJOUTER VOTRE CODE DIRECTEMENT ICI ...
+
+
+// CODE NON MODIFIABLE
+new Info("h1",      "TITRE1");
+new Info("section", "CONTENU DE MA SECTION");
+new Info("footer",  "TOUS DROITS RESERVES");
+
+$header = new Header;
+$main   = new Main;
+$footer = new Footer;
+
+echo
+<<<CODEHTML
+
+$header
+$main
+$footer
+
+CODEHTML;
