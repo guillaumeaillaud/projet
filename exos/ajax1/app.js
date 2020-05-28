@@ -10,7 +10,7 @@ const weatherIcons = {
 function capitalize(str){
     return str[0].toUpperCase() + str.slice(1);
 }
-
+CordialmentCordialment
 
 function main(){ 
  // step 1 : obtenir son adresse ip
