@@ -48,3 +48,43 @@ INSERT INTO `competence` VALUES (8,'C8','Elaborer et mettre en œuvre des compos
 INSERT INTO `niveau` VALUES (1,'imiter');
 INSERT INTO `niveau` VALUES (2,'adapter');
 INSERT INTO `niveau` VALUES (3,'transposer');
+
+
+La solution (une des solutions pour faire le lien entre les tables) : 
+```sql
+SELECT utilisateur.username, competence.libelle_competence, niveau.libelle_niveau
+FROM utilisateur, competence, niveau, niveau_utilisateur
+WHERE 
+utilisateur.id_utilisateur = niveau_utilisateur.id_utilisateur 
+AND competence.id_competence = niveau_utilisateur.id_competence 
+AND niveau.id_niveau = niveau_utilisateur.id_niveau
+```
+
+une autre solution
+
+```sql
+SELECT utilisateur.username, competence.libelle_competence, niveau.libelle_niveau
+FROM  niveau_utilisateur JOIN utilisateur ON utilisateur.id_utilisateur =
+niveau_utilisateur.id_utilisateur JOIN competence ON niveau_utilisateur.id_competence =
+competence.id_competence JOIN niveau ON niveau_utilisateur.id_niveau = niveau.id_niveau
+```
+
+encore une autre
+
+```sql
+SELECT utilisateur.username, competence.libelle_competence, niveau.libelle_niveau
+FROM  niveau_utilisateur
+NATURAL INNER JOIN utilisateur 
+NATURAL INNER JOIN competence 
+NATURAL INNER JOIN niveau ;
+```
+
+Utilisation d'alias (AS)
+
+```sql
+SELECT utilisateur.username, competence.libelle_competence, niveau.libelle_niveau
+FROM  niveau_utilisateur AS nv JOIN utilisateur AS u ON u.id_utilisateur =
+nv.id_utilisateur JOIN competence AS c ON nv.id_competence =
+c.id_competence JOIN niveau AS n ON
+nv.id_niveau = n.id_niveau
+```
