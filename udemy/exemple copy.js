@@ -143,29 +143,35 @@ finally {
 }
 */
 
-var choix;
-do{
-    choix =  prompt("Que souhaitez vous faire ?\n\n 1 - Addition\n 2 - Multiplication\n 3 - Soustraction\n 4 - Division");
-
-    if (choix===1){
-        
-        alert(choix);
-    }
-    else if (choix===2){   
-        
-        alert(choix);
-    }
-    else if (choix===3){            
-       
-        alert(choix);
-    }
-    else if (choix===4){
-        alert(choix);    
-    }
-    else {
-     prompt("Que souhaitez vous faire ?\n\n 1 - Addition\n 2 - Multiplication\n 3 - Soustraction\n 4 - Division");
-    }
-}
+var choix = "";
+do {
   
-while (choix == "" || choix == null || isNaN(choix) || choix > 4 || choix < 1  );
-alert(choix);
+  if (isNaN(choix) && choix > 4 && choix < 1 ) {
+    prompt("Que souhaitez vous faire ?\n\n 1 - Addition\n 2 - Multiplication\n 3 - Soustraction\n 4 - Division");
+   
+  }
+  else{
+    choix =  prompt("Que souhaitez vous faire ?\n\n 1 - Addition\n 2 - Multiplication\n 3 - Soustraction\n 4 - Division");
+    switch (choix) {
+        case "1":
+            choix = "Addition";
+            break;
+        case "2":    
+            choix = "Multiplication";
+            break;
+        case "3":
+            choix = "Soustraction";
+            break;
+        case "4":
+            choix = "Division";
+            break;
+        
+        default:
+            prompt("Que souhaitez vous faire ?\n\n 1 - Addition\n 2 - Multiplication\n 3 - Soustraction\n 4 - Division");
+            break;
+    }
+  }
+} while (choix == "" && choix == null && isNaN(choix) && choix > 4 && choix < 1  );
+
+
+
