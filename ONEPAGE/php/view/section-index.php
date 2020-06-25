@@ -15,14 +15,14 @@
 
         foreach ($logo as $indice => $different) 
         {
-            echo <<<html
+echo <<<html
 
-            <div class="colonne">
-                <img src="assets/img/$different" alt="">
-                <p>$paragraphe[$indice]</p>
-            </div>
+<div class="colonne">
+<img src="assets/img/$different" alt="">
+<p>$paragraphe[$indice]</p>
+</div>
 
-            html;
+html;
         }
          ?>
     </div>
@@ -62,12 +62,4 @@
                 <?php require_once "php/controller/traitement-contact.php" ?>
             </div>
         </form>
-
-
 </section>
-
-        
-        
-                
-          
-  
