@@ -2,6 +2,9 @@
 // on importe le framework express
 const express = require('express');
 
+// require body parser fait parti des fonctionalites de note 
+const { json } = require('body-parser');
+
 // on importe sql
 const mysql = require('mysql');
 const { request, response } = require('express');
@@ -83,9 +86,31 @@ app.delete("/users/:id", (request, response) => {
         }
         response.status(200);
         response.send(`utilisateur ${id} effacé`)
-
     });
-})
+});
+
+// on va creer une route permettant d'inserer un nouvel utilisateur dans la bdd
+app.post("/users", json(), (request, response) => {
+    /*
+    const user = {
+        name: "albert",
+        email: "al@pga.com",
+    };
+    */
+   //console.log(request.body);
+    const user = request.body;
+
+    const sql = "INSERT INTO user SET ?";
+    
+    connection.query(sql,[user] , (error, rows) => {
+        if(error){
+            response.status(500)
+            response.send('Erreur enregistrement utilisateur')
+        }
+        response.status(200)
+        response.send(`Utilisateur crée ${rows.affectedRows} modifiés`)
+    });
+});
 
 // on va dire au serveur d'ecouter les requetes entrantes
 app.listen(port, () => {
