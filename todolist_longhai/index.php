@@ -51,7 +51,7 @@
                 $tabLigne = $pdoStatement->fetchAll();
 
                 foreach ($tabLigne as $tabAsso) {
-                    $id = $tabAsso["id"];
+                    $id = $tabAsso['id'];
                     $title = $tabAsso["title"];
                     $description = $tabAsso["description"];
 
