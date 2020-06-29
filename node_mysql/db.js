@@ -19,4 +19,5 @@ connection.connect((error) => {
     console.log('connection ok à la bdd');
 });
 
+// pour exporter le fichier ds un autre fichier
 module.exports = connection;
