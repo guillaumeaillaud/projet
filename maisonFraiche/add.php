@@ -3,50 +3,51 @@
 //on demarre la session
 session_start();
 
-if($_POST)
-{
+if (isset($_POST)) {
     //on verifie si quand on post qql chose client est definie et n'est pas vide
     // et on verifie aussi le produit le prix et le nombre
-   if(isset($_POST['client']) && !empty($_POST['client'])
-   && isset($_POST['produit']) && !empty($_POST['produit'])
-   && isset($_POST['prix']) && !empty($_POST['prix'])
-   && isset($_POST['nombre']) && !empty($_POST['nombre']))
-   {
-    // on va inclure la connection a la bdd
-require_once('connect.php');
+    if (
+        isset($_POST['client']) && !empty($_POST['client'])
+        && isset($_POST['produit']) && !empty($_POST['produit'])
+        && isset($_POST['prix']) && !empty($_POST['prix'])
+        && isset($_POST['nombre']) && !empty($_POST['nombre'])
+    ) {
 
- //on nettoie les donnés envoyé avec strip_tags 
- $client = strip_tags($_POST['client']);
- $produit = strip_tags($_POST['produit']);
- $prix = strip_tags($_POST['prix']);
- $nombre = strip_tags($_POST['nombre']);
+        // on va inclure la connection a la bdd
+        require_once('connect.php');
+        
+        //on nettoie les donnés envoyé avec strip_tags 
+        $client = strip_tags($_POST['client']);
+        $produit = strip_tags($_POST['produit']);
+        $prix = strip_tags($_POST['prix']);
+        $nombre = strip_tags($_POST['nombre']);
 
-$sql = 'INSERT INTO `maisonFraiche` (`client`, `produit`, `prix`, `nombre`) VALUES(:client, :produit, prix, :nombre);';
 
-$query = $db->prepare($sql);
+        $sql = 'INSERT INTO `maisonFraiche` (`client`, `produit`, `prix`, `nombre`) VALUES(:client, :produit, :prix, :nombre);';
 
-//on doit accrocher les parametre avec bindvalue
-// PDO:PARAM_INT sert a verifier que id est un entier
-$query->bindValue(':client', $client, PDO::PARAM_STR);
-$query->bindValue(':produit', $produit, PDO::PARAM_STR);
-$query->bindValue(':prix', $prix, PDO::PARAM_STR);
-$query->bindValue(':nombre', $nombre, PDO::PARAM_STR);
+        $query = $db->prepare($sql);
 
-$query->execute();
+        //on doit accrocher les parametre avec bindvalue
+        // PDO:PARAM_INT sert a verifier que id est un entier
+        $query->bindValue(':client', $client, PDO::PARAM_STR);
+        $query->bindValue(':produit', $produit, PDO::PARAM_STR);
+        $query->bindValue(':prix', $prix, PDO::PARAM_STR);
+        $query->bindValue(':nombre', $nombre, PDO::PARAM_STR);
 
-//on affiche un message de confirmation
-$_SESSION['message'] = "Produit ajouté";
+        $query->execute();
 
-// on arrete la connection a la bdd
-require_once('close.php');
+        //on affiche un message de confirmation
+        $_SESSION['message'] = "Produit ajouté";
 
-// puis on redirige vers index.php
-// attention header location marche que si on a pas mis de message avant (exemple pas de echo)
-header('location: index.php');
+        // on arrete la connection a la bdd
+        require_once('close.php');
 
-   }else{
+        // puis on redirige vers index.php
+        // attention header location marche que si on a pas mis de message avant (exemple pas de echo)
+        header('location: index.php');
+    }
+} else {
     $_SESSION['erreur'] = 'le formulaire est incomplet';
-   }
 }
 
 ?>
@@ -66,12 +67,12 @@ header('location: index.php');
         <div class="row">
             <section class="col-12">
                 <?php
-                    if (!empty($_SESSION['erreur'])) {
-                        echo '<div class="alert alert-danger" role="alert">
+                if (!empty($_SESSION['erreur'])) {
+                    echo '<div class="alert alert-danger" role="alert">
                         ' . $_SESSION['erreur'] . '
                         </div>';
-                        $_SESSION['erreur'] = '';
-                    }
+                    $_SESSION['erreur'] = '';
+                }
                 ?>
                 <h1>Ajouter client</h1>
                 <form method="post">
@@ -81,7 +82,7 @@ header('location: index.php');
                     </div>
                     <div class="form-group">
                         <label for="produi">Produit</label>
-                        <input type="text" id="produit" name="produit" class="form-control">                    </div>
+                        <input type="text" id="produit" name="produit" class="form-control"> </div>
                     <div class="form-group">
                         <label for="prix">Prix</label>
                         <input type="text" id="prix" name="prix" class="form-control">

@@ -2,29 +2,17 @@
 // on importe le framework express
 const express = require('express');
 
+// on recupere le fichier db.js qui fait la connection a la bdd
+const connection = require('./db');
+
 // require body parser fait parti des fonctionalites de note 
-const { json } = require('body-parser');
-
-// on importe sql
-const mysql = require('mysql');
-const { request, response } = require('express');
-
-// on initialise la connection a la db
-const connection = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "user_db",
-});
-
-// on etablit la connection a la db
-connection.connect((error) => {
-    if(error) return console.log(error.message);
-    console.log('connection ok à la bdd');
-});
+//const { json } = require('body-parser');
 
 // on va creer une instance du serveur
 const app = express();
+
+// ici on va utiliser le middleware body-parser de maniere global pour toutes les routes
+app.use(express.json());
 
 // on va definir sur quel port le serveur va ecouter les requetes http
 const port = "5000";
@@ -65,11 +53,12 @@ app.get("/users/:id", (request, response) => {
         console.clear();
         console.log(result);
 
-        // pour afficher dans le navigateur
-        // .status et .send n'ont rien a voir avec le language de programmation utilisé 
-        response.status(200);
-        response.send(`affichage de l'utilisateur avec l'id ${id}`)
+      
     });
+    // pour afficher dans le navigateur
+    // .status et .send n'ont rien a voir avec le language de programmation utilisé 
+    response.status(200);
+    response.send(`affichage de l'utilisateur avec l'id ${id}`)
 });
 
 // on va faire une route pour delete qui va permettre d'effacer un user en fonction de son id
@@ -90,7 +79,7 @@ app.delete("/users/:id", (request, response) => {
 });
 
 // on va creer une route permettant d'inserer un nouvel utilisateur dans la bdd
-app.post("/users", json(), (request, response) => {
+app.post("/users", (request, response) => {
     /*
     const user = {
         name: "albert",
@@ -109,6 +98,24 @@ app.post("/users", json(), (request, response) => {
         }
         response.status(200)
         response.send(`Utilisateur crée ${rows.affectedRows} modifiés`)
+    });
+});
+
+// on va creer la route qui va ns permettre de faire un update dans la, bdd
+app.put('/users/:id', (request, response) =>{
+    const id = request.params.id;
+    console.log(id)
+    const user = request.body;
+
+    const sql = "UPDATE user SET ? WHERE id = ?";
+
+    connection.query(sql, [user, id], (error, rows) =>{
+        if(error){
+            response.status(500);
+            response.send(`Impossible de mettre à jour l'utilisateur ${id}, ${error.message}`);
+        }
+        response.status(200);
+        response.send(`Utilisateur ${id} mis à jour`);
     });
 });
 
