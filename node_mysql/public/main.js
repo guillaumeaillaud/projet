@@ -1,5 +1,5 @@
 
-// le fichier main.js nous sert aecouter les evenements qui se passent dans le fichier index.html 
+// le fichier main.js nous sert a ecouter les evenements qui se passent dans le fichier index.html et services.html
 
 const btnUsers = document.querySelector('#btn-users');
 const userContainer = document.querySelector('.user-container');
