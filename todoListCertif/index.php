@@ -16,11 +16,11 @@
 
     <main class="container">
 
-     <!--je recupere le fichier controller qui me permet de recuperer les infos du formulaire et de les envoyer a la bdd -->   
-    <?php require_once "php/controller/controller.php"; ?>
-    
+        <!--je recupere le fichier controller qui me permet de recuperer les infos du formulaire et de les envoyer a la bdd -->
+        <?php require_once "php/controller/controller.php"; ?>
+
         <div class="row">
-            <section class="col-12 create">
+            <section class="col-12">
                 <h2>Formulaire de Création</h2>
                 <!-- formulaire de creation d'une tache -->
                 <form class="form create" method="post">
@@ -59,12 +59,15 @@
         </div>
 
         <div class="row">
-            <section class="col-12 update">
+            <section class="col-12">
                 <h2>Formulaire de Modification</h2>
-                        <label for="id">id</label>
-                        <input type="text" name="id" class="form-control" id="id">
+
                 <!-- formulaire de modification d'une tache -->
                 <form class="form update" method="post">
+                    <div>
+                        <label for="id">id</label>
+                        <input type="text" name="id" class="form-control" id="id">
+                    </div>
                     <div class="form-group">
                         <label for="titre">Titre</label>
                         <input type="text" name="titre" class="form-control" id="titre" placeholder="Entrez le titre de la tache">
@@ -100,7 +103,7 @@
         </div>
 
         <div class="row">
-            <section class="col-12 update">
+            <section class="col-12" id="supp">
                 <h2>Formulaire pour Supprimer</h2>
                 <!-- formulaire pour supprimer d'une tache -->
                 <form class="form delete" method="post">
@@ -112,15 +115,18 @@
                         <input type="hidden" name="formulaire" class="form-control" value="delete">
                         <button type="submit" class="btn btn-primary">Supprimer</button>
                     </div>
-               
+                    
                 </form>
             </section>
-    <?php require_once "php/view/view.php";?>
+            <div>
+                <?php require_once "php/view/view.php"; ?>
+            </div>
     </main>
 
     <footer>
 
     </footer>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

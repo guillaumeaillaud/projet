@@ -19,7 +19,7 @@ function read(){
     $bdd = connexion();
     //on fait la requete sql
     $sql = "SELECT * FROM `tache`";
-    // on execute la requete
+    // on prepare la requete
     $pdo = $bdd->prepare($sql);
     // on execute la requete
     $pdo->execute();
@@ -52,5 +52,42 @@ if ($formulaire == "create" && $formulaire !=="") {
     }
 }
 
+
+//UPDATE
+if ($formulaire == "update" && $formulaire !=="") {
+    
+    if (isset($_POST['id']) && !empty($_POST['id'])
+    && isset($_POST['titre']) && !empty($_POST['titre'])
+    && isset($_POST['description']) && !empty($_POST['description'])
+    && isset($_POST['statut']) && !empty($_POST['statut']) ) {
+
+        $tab = [
+                "id" => $_REQUEST["id"],
+                "titre" => $_REQUEST["titre"],
+                "description" => $_REQUEST["description"],
+                "statut" => $_REQUEST["statut"]
+            ];
+
+        $sql = "UPDATE `tache` SET `titre` = :titre, `description` = :description, `statut` = :statut WHERE id = :id";
+
+        requeteSql($tab, $sql);
+    }
+}
+
+
+//DELETE
+if ($formulaire == "delete" && $formulaire !=="") {
+    
+    if (isset($_POST['id']) && !empty($_POST['id'])) {
+
+        $tab = [
+                "id" => $_REQUEST["id"],
+            ];
+
+        $sql = "DELETE FROM `tache` WHERE id = :id";
+
+        requeteSql($tab, $sql);
+    }
+}
 
 
