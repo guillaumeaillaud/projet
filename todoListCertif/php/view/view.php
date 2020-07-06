@@ -3,7 +3,8 @@
 require_once "php/controller/controller.php";
 
 // on stock les données de la bdd qu'on recupere sous la forme d'un tableau asso grace a la fonction read
-$tableau = read();
+$table = "tache";
+$tableau = read($table);
 
 //on fait un echo pour afficher les resultats
 echo '
@@ -27,12 +28,12 @@ foreach ($tableau as $tab) {
     // on affiche les valeurs
     echo "
             <tr>
-                <td>$id</td>
+                <td>$id_tache</td>
                 <td>$titre</td>
                 <td>$description</td>
                 <td>$statut</td>
-                <td><button type='button' class='btn btn-success modifier' id='$id' desc='$description' titre='$titre' statut='$statut' >modifier</button></td>
-                <td><button type='button' class='btn btn-danger supprimer' id=$id >supprimer</button></td>
+                <td><button type='button' class='btn btn-success modifier' id='$id_tache' desc='$description' titre='$titre' statut='$statut' >modifier</button></td>
+                <td><button type='button' class='btn btn-danger supprimer' id=$id_tache >supprimer</button></td>
             </tr>
         </tbody>
         ";
