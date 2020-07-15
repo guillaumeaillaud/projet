@@ -27,13 +27,10 @@ btnSuppr.forEach(function(button){
 })
 
 
-// je vais selectionner les bouton  supprimer dans la liste grace a la classe supprimer
+// je vais selectionner les bouton  modifier dans la liste grace a la classe modifier
 let btnModif = document.querySelectorAll('.modifier');
-// je selectionne l'input qui est dans le formulaire de delete pour mettre dedans l'id du bouton clické
 
-
-
-// on fait une boucle sur tout les boutons supprimer
+// on fait une boucle sur tout les boutons modifier
 btnModif.forEach(function(button){
     // on ecoute sur quel bouton l'utilisateur va clicker
     button.addEventListener('click', function(event) {
@@ -42,7 +39,7 @@ btnModif.forEach(function(button){
         let btnTitre = event.target.getAttribute('titre');
         let btnDesc = event.target.getAttribute('desc');
         let btnStatut = event.target.getAttribute('statut');
-        // on met dans l'input du formulaire de update la valeur de l'id du bouton clické
+        // on met dans l'input du formulaire de update les valeurs du bouton clické
          document.querySelector(".update input[name=id]").value = btnId;
          document.querySelector(".update input[name=titre]").value = btnTitre;
          document.querySelector(".update input[name=description]").value = btnDesc;

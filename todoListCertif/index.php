@@ -14,6 +14,7 @@
     <main>
         <a href="inscription.php">Inscription</a>
         <a href="connection.php">Connexion</a>
+        <a href="show.php">Voir</a>
     </main>
     <footer>
     </footer>

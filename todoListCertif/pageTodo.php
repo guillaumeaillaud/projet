@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +13,10 @@
 <body>
     <header>
         <h1>Ma Todo Liste</h1>
+        <nav>
+       
+        <a href="deconnection.php">Déconnexion</a>
+        </nav>
     </header>
 
     <main class="container">
@@ -21,6 +26,7 @@
 
         <div class="row">
             <section class="col-12">
+            <?php echo "<p class='alert alert-success'>Bonjour : " .$_SESSION['nom']."<p>";?>
                 <h2>Formulaire de Création</h2>
                 <!-- formulaire de creation d'une tache -->
                 <form class="form create" method="post">

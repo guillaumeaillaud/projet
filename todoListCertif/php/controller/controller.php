@@ -14,18 +14,18 @@ function requeteSql($tab, $sql)
 }
 
 //READ
-function read($table)
+function read($table, $id)
 {
     //on on appel la fonction connexion pour se connecter a la bdd et on prepare la requete sql pour eviter les injections
     $bdd = connexion();
     //on fait la requete sql
-    $sql = "SELECT * FROM $table";
+    $sql = "SELECT * FROM $table WHERE id_u = ?";
     // on prepare la requete
     $pdo = $bdd->prepare($sql);
     // on execute la requete
-    $pdo->execute();
+    $pdo->execute(array($id));
     // on recupere les infos sous forme de tableau et on les stocks ds $resultat
-    $resultat = $pdo->fetchAll(PDO::FETCH_ASSOC);
+    $resultat = $pdo->fetchAll();
     // on retourne le resultat
     return $resultat;
 }
@@ -42,12 +42,15 @@ if ($formulaire == "create" && $formulaire !== "") {
     ) {
 
         $tab = [
+            "id_users" => $_SESSION['id'],
+            "nom" => $_SESSION["nom"],
             "titre" => $_REQUEST["titre"],
             "description" => $_REQUEST["description"],
             "statut" => $_REQUEST["statut"]
         ];
+        
 
-        $sql = "INSERT INTO `tache` (`titre`, `description`, `statut`) VALUES (:titre, :description, :statut)";
+        $sql = "INSERT INTO `taches` (`id_taches`, `id_u`, `nom`, `titre`, `description`, `statut`) VALUES (NULL, :id_users, :nom, :titre, :description, :statut);";
 
         requeteSql($tab, $sql);
     }
@@ -66,12 +69,13 @@ if ($formulaire == "update" && $formulaire !== "") {
 
         $tab = [
             "id" => $_REQUEST["id"],
+            "nom" => $_SESSION["nom"],
             "titre" => $_REQUEST["titre"],
             "description" => $_REQUEST["description"],
             "statut" => $_REQUEST["statut"]
         ];
 
-        $sql = "UPDATE `tache` SET `titre` = :titre, `description` = :description, `statut` = :statut WHERE id = :id";
+        $sql = "UPDATE `taches` SET `nom` = :nom, `titre` = :titre, `description` = :description, `statut` = :statut WHERE id_taches = :id";
 
         requeteSql($tab, $sql);
     }
@@ -84,43 +88,13 @@ if ($formulaire == "delete" && $formulaire !== "") {
     if (isset($_POST['id']) && !empty($_POST['id'])) {
 
         $tab = [
-            "id_tache" => $_REQUEST["id"],
+            "id" => $_REQUEST["id"],
         ];
 
-        $sql = "DELETE FROM `tache` WHERE id_tache = :id_tache";
+        $sql = "DELETE FROM `taches` WHERE id_taches = :id";
 
         requeteSql($tab, $sql);
     }
 }
 
-// CREATE UTILISATEUR
-if ($formulaire == "inscription" && $formulaire !== "") {
 
-    if (
-        isset($_POST['nom']) && !empty($_POST['nom'])
-        && isset($_POST['pwd']) && !empty($_POST['pwd'])) {
-
-        //on appel la fonction read et je lui passe la table user en parametre
-        $table = "users";
-        $users = read($table);
-        //je fais une boucle pour parcourir le tableau des données et selectionner la clé qui on le nom => nom
-        foreach ($users as $user) {
-            // je fais un extract ce qui va me fournir la variable $nom 
-            extract($user);
-        }
-        if ($nom === $_POST["nom"]) {
-            echo "Ce nom existe deja";
-        } else {
-
-            $tab = [
-                "nom" => $_REQUEST["nom"],
-                "pwd" => $_REQUEST["pwd"],
-            ];
-
-            $sql = "INSERT INTO `users` (`nom`, `pwd`) VALUES (:nom, :pwd)";
-
-            requeteSql($tab, $sql);
-            header("location:connection.php");
-        }
-    }
-}

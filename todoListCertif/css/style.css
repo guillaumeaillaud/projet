@@ -2,3 +2,20 @@
     display: none;
 }
 
+.todo{
+    background-color: blue;
+    border-radius: 20px;
+
+}
+
+.ongoing{
+    background-color: orange;
+    border-radius: 20px;
+
+}
+
+.done{
+    background-color: green;
+    border-radius: 20px;
+
+}

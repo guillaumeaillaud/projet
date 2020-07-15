@@ -3,8 +3,9 @@
 require_once "php/controller/controller.php";
 
 // on stock les données de la bdd qu'on recupere sous la forme d'un tableau asso grace a la fonction read
-$table = "tache";
-$tableau = read($table);
+$table = "taches";
+$id = $_SESSION['id'];
+$tableau = read($table, $id);
 
 //on fait un echo pour afficher les resultats
 echo '
@@ -12,6 +13,7 @@ echo '
         <thead>
             <tr>
             <th>Id</th>
+            <th>Nom</th>
             <th>Titre</th>
             <th>Description</th>
             <th>Statut</th>
@@ -28,12 +30,13 @@ foreach ($tableau as $tab) {
     // on affiche les valeurs
     echo "
             <tr>
-                <td>$id_tache</td>
+                <td>$id_taches</td>
+                <td>$nom</td>
                 <td>$titre</td>
                 <td>$description</td>
-                <td>$statut</td>
-                <td><button type='button' class='btn btn-success modifier' id='$id_tache' desc='$description' titre='$titre' statut='$statut' >modifier</button></td>
-                <td><button type='button' class='btn btn-danger supprimer' id=$id_tache >supprimer</button></td>
+                <td  class='$statut'>$statut</td>
+                <td><button type='button' class='btn btn-success modifier' id='$id_taches' nom='$nom' titre='$titre' desc='$description' statut='$statut' >modifier</button></td>
+                <td><button type='button' class='btn btn-danger supprimer' id=$id_taches>supprimer</button></td>
             </tr>
         </tbody>
         ";
