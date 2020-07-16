@@ -11,7 +11,7 @@ let input = document.querySelector(".delete input[name=id]");
 btnSuppr.forEach(function(button){
     // on ecoute sur quel bouton l'utilisateur va clicker
     button.addEventListener('click', function(event) {
-        // on recupere le bouton sur lequel l'utilisateur a clique
+        // on recupere le bouton sur lequel l'utilisateur a clique et la valeur d el'attribut id
         let btnId = event.target.getAttribute('id');
         // on met dans l'input du formulaire de delete la valeur de l'id du bouton clické
         input.value = btnId;
@@ -39,6 +39,8 @@ btnModif.forEach(function(button){
         let btnTitre = event.target.getAttribute('titre');
         let btnDesc = event.target.getAttribute('desc');
         let btnStatut = event.target.getAttribute('statut');
+
+        document.querySelector(".update")
         // on met dans l'input du formulaire de update les valeurs du bouton clické
          document.querySelector(".update input[name=id]").value = btnId;
          document.querySelector(".update input[name=titre]").value = btnTitre;

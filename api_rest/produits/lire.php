@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
         // puis un sous ensemble produit
         $tableauProduits['produits'] = [];
 
-        // on va parcourir les produits on faiant un fetch en meme temps
+        // on va parcourir les produits on faisant un fetch en meme temps
         // FETCH_ASSOC c'est pour dire qu'on veut tableau asso
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
             extract($row);

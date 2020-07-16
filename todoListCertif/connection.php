@@ -19,7 +19,7 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
             $_SESSION['id'] = $user['id_users'];
             exit();
         } else {
-            echo "le nom ou le mot de pass est incorret";
+            echo "le nom ou le mot de passe est incorret";
         }
     }
 }

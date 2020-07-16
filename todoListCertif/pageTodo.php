@@ -66,10 +66,9 @@
 
         <div class="row">
             <section class="col-12">
-                <h2>Formulaire de Modification</h2>
-
-                <!-- formulaire de modification d'une tache -->
+                    <!-- formulaire de modification d'une tache -->
                 <form class="form update" method="post">
+                <h2>Formulaire de Modification</h2>
                     <div>
                         <label for="id">id</label>
                         <input type="text" name="id" class="form-control" id="id">
