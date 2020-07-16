@@ -52,7 +52,7 @@
 
                 foreach ($tabLigne as $tabAsso) {
                     $id = $tabAsso['id'];
-                    $title = $tabAsso["title"];
+                    $title = $tabAsso['title'];
                     $description = $tabAsso["description"];
 
                     echo
