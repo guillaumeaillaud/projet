@@ -5,16 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <title>Ma todo List Accueil</title>
-</head>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&family=Permanent+Marker&family=Rajdhani:wght@500&display=swap" rel="stylesheet"> </head>
 <body>
-    <header>
-    <h1>Ma todo List Accueil</h1>
+    <header class="container">
+    <h1>MA TODO LISTE ACCUEIL</h1>
+    <hr>
     </header>
     <main>
-        <a href="inscription.php">Inscription</a>
-        <a href="connection.php">Connexion</a>
-        <a href="show.php">Voir</a>
+        <div class="bouton">
+            <button><a href="php/view/inscription.php">Inscription</a></button> 
+            <button><a href="php/view/connection.php">Connexion</a></button>
+        </div>
+        <img class="displayed" src="img/postit.jpg" >
     </main>
     <footer>
     </footer>

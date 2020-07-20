@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require("php/model/model.php");
+require("../model/model.php");
 $db = connexion();
 
 if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
@@ -19,7 +19,7 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
 
     while ($nom_verification = $req->fetch()) {
         if ($nom_verification['numberNom'] != 0) {
-            header('location: inscription.php?error=1&nom=1');
+            header('location: inscription.php?nom=1');
             exit();
         }
     }
@@ -41,19 +41,19 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
-</head>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&family=Permanent+Marker&family=Rajdhani:wght@500&display=swap" rel="stylesheet"> </head>
 
 <body>
-    <header>
+    <header class="container">
         <h1>FORMULAIRE D'INSCRIPTION</h1>
+        <hr>
     </header>
     <main class="container">
         <div class="row">
             <section class="col-12">
-                <?php require_once "php/controller/controller.php"; ?>
+                <?php require_once "../controller/controller.php"; ?>
                 <?php if (isset($_GET['nom'])) {
                     echo "<p class='alert alert-danger'>Ce nom est déjà utilisée.</p>";
                 }
@@ -69,8 +69,8 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
                     </div>
                     <div>
                         <input type="hidden" value="inscription" name="formulaire">
-                        <button class="btn btn-primary">S'inscrire</button>
-                        <a href="connection.php">Connexion</a>
+                        <button>S'inscrire</button>
+                        <button><a href="connection.php">Connexion</a></button>
                     </div>
                 </form>
             </section>

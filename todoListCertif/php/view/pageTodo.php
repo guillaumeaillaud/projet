@@ -5,31 +5,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Todo Liste</title>
-</head>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&family=Permanent+Marker&family=Rajdhani:wght@500&display=swap" rel="stylesheet"> </head>
 
 <body>
-    <header>
+    <header class="container">
         <h1>Ma Todo Liste</h1>
-        <nav>
-       
-        <a href="deconnection.php">Déconnexion</a>
-        </nav>
+        <hr>
+        <div class="row">
+            <nav>
+                <div>
+                    <button id="dec" class="btn btn-danger"><a href="deconnection.php">Déconnexion</a></button>
+                    <button id="dec" class="btn" ><a href="show.php">Voir</a></button>
+                </div>
+                <?php 
+                        echo "<h4>Bonjour : " .$_SESSION['nom']."<h4>"; 
+                    ?>
+            </nav>
+            <hr>
+        </div>
     </header>
 
     <main class="container">
-
         <!--je recupere le fichier controller qui me permet de recuperer les infos du formulaire et de les envoyer a la bdd -->
-        <?php require_once "php/controller/controller.php"; ?>
-
+        <?php require_once "../controller/controller.php"; ?>
         <div class="row">
-            <section class="col-12">
-            <?php echo "<p class='alert alert-success'>Bonjour : " .$_SESSION['nom']."<p>";?>
-                <h2>Formulaire de Création</h2>
+            <section>
+                <div>
                 <!-- formulaire de creation d'une tache -->
-                <form class="form create" method="post">
+                <form class="create" method="post">
+                <h2>Ajouter une tâche</h2>
                     <div class="form-group">
                         <label for="titre">Titre</label>
                         <input type="text" name="titre" class="form-control" id="titre" placeholder="Entrez le titre de la tache">
@@ -47,7 +53,8 @@
                     <div>
                         <label>
                             <input type="radio" name="statut" value="ongoing">
-                            <span>Ongoing</span>
+                            <span>ongoing</span>
+
                         </label>
                     </div>
                     <div>
@@ -61,17 +68,18 @@
                         <button type="submit" class="btn btn-primary">Ajouter</button>
                     </div>
                 </form>
+                
             </section>
         </div>
 
         <div class="row">
             <section class="col-12">
                     <!-- formulaire de modification d'une tache -->
-                <form class="form update" method="post">
-                <h2>Formulaire de Modification</h2>
+                <form class="update" method="post">
+                <h2>Modifier une tâche</h2>
                     <div>
-                        <label for="id">id</label>
-                        <input type="text" name="id" class="form-control" id="id">
+                        <label for="id"></label>
+                        <input type="hidden" name="id" class="form-control" id="id">
                     </div>
                     <div class="form-group">
                         <label for="titre">Titre</label>
@@ -124,14 +132,14 @@
                 </form>
             </section>
             <div>
-                <?php require_once "php/view/view.php"; ?>
+                <?php require_once "view.php"; ?>
             </div>
     </main>
 
     <footer>
 
     </footer>
-    <script src="js/app.js"></script>
+    <script src="../../js/app.js"></script>
 </body>
 
 </html>

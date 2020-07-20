@@ -3,23 +3,75 @@
 }
 
 .todo{
-    background-color: blue;
+    background-color: rgb(231, 145, 145);
     border-radius: 20px;
-
 }
 
 .ongoing{
-    background-color: orange;
+    background-color: rgb(224, 168, 62);
     border-radius: 20px;
-
 }
 
 .done{
-    background-color: green;
+    background-color: rgb(135, 236, 135);
     border-radius: 20px;
-
 }
 
-.cache{
+.update{
     display: none;
+}
+
+.update.cache{
+    display: block;
+}
+
+.create{
+    display: block;
+}
+
+.create.cache{
+    display: none;
+}
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+label, input, button, a, th, td, h4, h2, h1{
+    font-family: 'Baloo Bhaina 2', cursive;
+
+    font-family: 'Permanent Marker', cursive;
+
+    font-family: 'Rajdhani', sans-serif;
+}
+
+#dec{
+    float: right;
+}
+
+img.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    height: 480px;
+    object-fit: fill;
+}
+
+.bouton{
+    text-align: center;
+}
+
+.container{
+    width: 33%;
+    margin: 0 auto;
 }

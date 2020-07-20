@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Document</title>
-</head>
-
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&family=Permanent+Marker&family=Rajdhani:wght@500&display=swap" rel="stylesheet"> 
 <body>
-    <header>
-        <h1>Tableau des utilisateurs avec leurs taches</h1>
+    <header class="container">
+        <h1>TABLEAU GENERAL DES TACHES</h1>
+        <hr>
         <nav>
-            <a href="inscription.php">Inscription</a>
-            <a href="connection.php">Connexion</a>
+            <div class="bouton">
+                <button><a href="../../index.php">deconnection</a></button>
+                <button><a href="pageTodo.php">retour</a></button>
+            </div>
+            <hr>
         </nav>
     </header>
 
@@ -32,7 +34,8 @@
                     </thead>
                     <tbody>
                         <?php
-                        require("php/model/model.php");
+                        session_start();
+                        require("../model/model.php");
 
                         $bdd = connexion();
 
@@ -47,11 +50,11 @@
                         foreach ($resultats as $resultat) {
                             extract($resultat);
                             echo "
-                                <tr class='$statut'>
-                                    <br><td>$nom</td>
+                                <tr>
+                                    <td>$nom</td>
                                     <td>$titre</td>
                                     <td>$description</td>
-                                    <td >$statut</td>
+                                    <td class='$statut'>$statut</td>
                                 </tr>";
                         }
                         ?>

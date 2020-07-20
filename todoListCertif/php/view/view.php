@@ -1,24 +1,26 @@
 <?php
 
-require_once "php/controller/controller.php";
+require_once "../controller/controller.php";
 
 // on stock les données de la bdd qu'on recupere sous la forme d'un tableau asso grace a la fonction read
 $table = "taches";
+
+
 $id = $_SESSION['id'];
 $tableau = read($table, $id);
 
 //on fait un echo pour afficher les resultats
 echo '
+
     <table class="table">
         <thead>
             <tr>
-            <th>Id</th>
-            <th>Nom</th>
-            <th>Titre</th>
-            <th>Description</th>
-            <th>Statut</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
+                <th>Nom</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Statut</th>
+                <th>Modifier</th>
+                <th>Supprimer</th>
             </tr>
         </thead>
         <tbody>
@@ -30,7 +32,6 @@ foreach ($tableau as $tab) {
     // on affiche les valeurs
     echo "
             <tr>
-                <td>$id_taches</td>
                 <td>$nom</td>
                 <td>$titre</td>
                 <td>$description</td>

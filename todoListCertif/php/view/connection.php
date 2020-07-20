@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require('php/model/model.php');
+require('../model/model.php');
 
 $db = connexion();
 // CONNEXION
@@ -31,14 +31,14 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Formulaire de connexion</title>
-</head>
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhaina+2:wght@600&family=Permanent+Marker&family=Rajdhani:wght@500&display=swap" rel="stylesheet"> </head>
 
 <body>
-    <header>
+    <header class="container">
         <h1>FORMULAIRE DE CONNEXION</h1>
+        <hr>
     </header>
     <main class="container">
         <div class="row">
@@ -53,11 +53,11 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
                     </div>
                     <div class="form-group">
                         <label for="pwd">Mot de passe</label>
-                        <input type="text" name="pwd" class="form-control" id="pwd" placeholder="Entrez votre mot de passe">
+                        <input type="password" name="pwd" class="form-control" id="pwd" placeholder="Entrez votre mot de passe">
                     </div>
                     <div>
-                        <button class="btn btn-primary">Connexion</button>
-                        <a href="inscription.php">S'inscrire</a>
+                        <button>Connexion</button>
+                        <button><a href="inscription.php">S'inscrire</a></button>
                     </div>
                 </form>
             </section>

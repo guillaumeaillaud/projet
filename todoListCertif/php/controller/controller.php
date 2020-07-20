@@ -1,6 +1,6 @@
 <?php
 
-require_once "php/model/model.php";
+require_once "../model/model.php";
 
 // on fait une fonction pour preparer et et envoyer la requete 
 function requeteSql($tab, $sql)
