@@ -16,7 +16,9 @@
             <button><a href="php/view/inscription.php">Inscription</a></button> 
             <button><a href="php/view/connection.php">Connexion</a></button>
         </div>
-        <img class="displayed" src="img/postit.jpg" >
+        <div>
+            <img class="displayed" src="img/postit.jpg" >
+        </div>
     </main>
     <footer>
     </footer>

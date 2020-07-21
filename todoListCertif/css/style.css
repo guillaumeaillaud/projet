@@ -64,7 +64,6 @@ img.displayed {
     margin-right: auto;
     width: 70%;
     height: 480px;
-    object-fit: fill;
 }
 
 .bouton{

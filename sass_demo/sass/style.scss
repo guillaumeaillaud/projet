@@ -1,0 +1,70 @@
+//import du module from SASS
+@use 'sass:color';
+
+// reset styles
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+//variable
+$main-color: lightcoral;
+$secondary-color: lightgreen;
+
+body{
+    background: $main-color;
+}
+
+//mixins
+@mixin displayFlex($direction, $alignement, $justify) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $alignement;
+
+}
+
+//functions
+@function colorComplement($color){
+    @return color.complement();
+}
+
+//nesting
+header{
+    padding: 1rem;
+    @include displayFlex(column, center, center);
+
+    h1 {
+        color: colorComplement($secondary-color);
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
+
+    p {
+        color: $secondary-color;
+
+        &:hover{
+            font-size: 2rem;
+
+            //css classique
+            // header p:hover{
+            // font-size: 2rem;
+            //  }  
+        }
+    }
+}
+
+
+
+main {
+    padding: 2rem;
+    @include displayFlex(row, center, space-between);
+    h2{
+        font-size: 1.2rem;
+        color: black;
+    }
+
+    p{
+        color: red;
+    }
+}
