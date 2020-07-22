@@ -33,7 +33,7 @@ function read($table, $id)
 
 $formulaire = $_POST["formulaire"] ?? "";
 // CREATE TACHE TODOLIST
-if ($formulaire == "create" && $formulaire !== "") {
+if ($formulaire == "create") {
 
     if (
         isset($_POST['titre']) && !empty($_POST['titre'])
@@ -58,7 +58,7 @@ if ($formulaire == "create" && $formulaire !== "") {
 
 
 //UPDATE TACHE TODOLIST
-if ($formulaire == "update" && $formulaire !== "") {
+if ($formulaire == "update") {
 
     if (
         isset($_POST['id']) && !empty($_POST['id'])
@@ -83,7 +83,7 @@ if ($formulaire == "update" && $formulaire !== "") {
 
 
 //DELETE TACHE TODOLIST
-if ($formulaire == "delete" && $formulaire !== "") {
+if ($formulaire == "delete") {
 
     if (isset($_POST['id']) && !empty($_POST['id'])) {
 

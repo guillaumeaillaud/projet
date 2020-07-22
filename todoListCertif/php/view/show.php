@@ -14,7 +14,7 @@
         <nav>
             <div class="bouton">
                 <button><a href="../../index.php">deconnection</a></button>
-                <button><a href="pageTodo.php">retour</a></button>
+                <button><a href="pageTodo.php?success=1">retour</a></button>
             </div>
             <hr>
         </nav>

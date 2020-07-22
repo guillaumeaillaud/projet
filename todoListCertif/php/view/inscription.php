@@ -14,6 +14,7 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
 
     // TEST SI NOM UTILISE
     // on renome la fonction count : numberNom
+    // on fait la requete suivante pour verifier si le nom existe dans la bdd
     $req = $db->prepare("SELECT count(*) as numberNom FROM users WHERE nom = ?");
     $req->execute(array($nom));
 
@@ -28,7 +29,7 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
     // ENVOI DE LA REQUETE
     $req = $db->prepare("INSERT INTO users(nom, pwd) VALUES(?,?)");
     $req->execute(array($nom, $pwd));
-
+    // success servira de parametre dans le fichier connection.php
     header('location: connection.php?success=1');
     exit();
 }
@@ -68,7 +69,6 @@ if (!empty($_POST['nom']) && !empty($_POST['pwd'])) {
                         <input type="text" name="pwd" class="form-control" id="pwd" placeholder="Entrez votre mot de passe">
                     </div>
                     <div>
-                        <input type="hidden" value="inscription" name="formulaire">
                         <button>S'inscrire</button>
                         <button><a href="connection.php">Connexion</a></button>
                     </div>

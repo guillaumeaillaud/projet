@@ -20,7 +20,12 @@
                     <button id="dec" class="btn" ><a href="show.php">Voir</a></button>
                 </div>
                 <?php 
+                    if(isset($_GET["success"])){
                         echo "<h4>Bonjour : " .$_SESSION['nom']."<h4>"; 
+                    }else{
+                        header("location:../../index.php");
+                    }
+                        
                     ?>
             </nav>
             <hr>
